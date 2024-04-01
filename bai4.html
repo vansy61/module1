@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bài 4</title>
+</head>
+<body>
+  <canvas id="canvas" width="1000px" height="600px"></canvas>
+  <script>
+    /*
+      Hãy viết một chương trình để biểu diễn hình tròn, với mô tả
+      của lớp hình tròn như sau:
+      Circle:Tênlớp
+      -x:Toạđộ x
+      -y:Toạđộy
+      -radius:Bán kính
+      -color:Màu sắc(sử dụng mã màu hex)
+      +render(canvas):Hiển thị hình tròn trên một canvas
+      Hãy thực hiện các thao tác theo kịch bản sau:
+      - Tạo một hình tròn có tọa độ 50,50 và bán kính 80, màu #000000
+      -Hiển thị hình tròn trên một canvas bằng cách sử dụng phương thức render
+    */
+
+
+    class Circle {
+      constructor(x, y, r, color) {
+        this.x = x;
+        this.y = y;
+        this.r = r;
+        this.color = color;
+      }
+
+      render(canvas) {
+        let ctx = canvas.getContext("2d");
+        ctx.fillStyle = this.color;
+        ctx.beginPath();
+        ctx.arc(this.x, this.y, this.r, 0, 2 * Math.PI);
+        ctx.fill();
+      }
+    }
+
+    let canvas = document.getElementById('canvas');
+
+    let circle_test = new Circle(50, 50, 80, "#000000");
+    circle_test.render(canvas);
+  </script>
+</body>
+</html>
